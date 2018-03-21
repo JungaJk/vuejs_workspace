@@ -27,8 +27,12 @@ var vm1 = new Vue({
 
 setTimeout(function(){
   vm1.title = 'Chnaged by Timer!';
+  vm1.show();
 },3000);
 
+Vue.component('hello',{
+  template: '<h1>hello</h1>'
+})
 var vm2 = new Vue({
   el: '#app2',
   data:{
