@@ -2,9 +2,11 @@
     <div class="component">
         <h3>You may view the User Details here</h3>
         <p>Many Details</p>
-        <p>Username {{ myName}}</p>
-         <p>Reversed User name {{ switchName() }}</p> 
-        <button :click="resetName">Reset the name</button>
+        <p>User name {{ myName }}</p>
+        <p>User Age {{ userAge }}</p>
+        <p>Reversed User name {{ switchName() }}</p> 
+        <button @click="resetName">Reset the name</button>
+        <button @click="resetFn()">Reset the name</button>
     </div>
 </template>
 
@@ -13,17 +15,17 @@
         props:{
             myName:{
                 type: String
-            }
+            },
+            resetFn: Function,
+            userAge: Number
         },
         methods:{
             switchName() {
                 return this.myName.split("").reverse().join("");
             },
-
-            
             resetName(){
-                this.myName = 'Max';
-                this.$emit('nameWasReset',this.myName);
+                this.myName= "Max";
+                this.$.emit('resetName',this.myName);
             }
         }
     }
