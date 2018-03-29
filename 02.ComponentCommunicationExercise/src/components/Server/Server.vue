@@ -1,15 +1,16 @@
 <template>
-    <li class="list-group-item"  @click="serverSelected">
-        Server #{{ id }}
+    <li class="list-group-item" @click="itemSelected">
+        Server #{{server.id }}
     </li>
 </template>
 
 <script>
-    export default{
-       props:['id'],
+    import{EventBus} from '../../main';
+    export default {
+        props: ['server'],
         methods:{
-            serverSelected(){
-                console.log('sss')
+            itemSelected(){
+                EventBus.$emit('itemSelected', this.server)
             }
         }
     }
